@@ -6,7 +6,7 @@ hook.Add("Think", "NoSurf", function()
 	if nosurf_enabled:GetBool() then
 		for k,v in pairs(player.GetAll()) do
 			if not v:IsAdmin() or v:IsAdmin() and nosurf_admins:GetBool() then
-				local speed = v:GetVelocity().z
+				local speed = v:GetVelocity():Length()
 				local weapon = v:GetActiveWeapon()
 				local aim = v:GetEyeTrace().Entity
 				local trace = util.QuickTrace( v:GetPos() + Vector(0, 0, 64), Vector(0, 0, -128), v)
