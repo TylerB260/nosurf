@@ -1,0 +1,13 @@
+{
+    "ignore": [
+        ".git/*",
+        "README.md",
+        "LICENSE"
+    ],
+    "tags": [
+        "roleplay"
+    ],
+    "title": "NoSurf",
+    "type": "tool",
+    "workshopid": 351893130
+}
