@@ -22,8 +22,13 @@ hook.Add("Think", "NoSurf", function()
 							if aim:IsPlayerHolding() then
 								if v:GetMoveType() != MOVETYPE_NOCLIP then
 									if IsValid(trace.Entity) and trace.Entity == aim then
-										v:SetNWString("deadreason", "Propsurfing is not allowed.")
-										v:Kill()
+										local stop = hook.Call("PropSurfed", GM or  GAMEMODE, v, aim)
+										
+										-- for developers: return true in the above hook and it'll stop the killing.
+										--game.ConsoleCommand("say "..(stop and "stopped" or "not stopped").."\n")
+										if not stop then 
+											v:Kill() 
+										end
 									end
 								end
 							end
